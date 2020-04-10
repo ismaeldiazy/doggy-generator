@@ -35,4 +35,26 @@ class Interface {
                 }
             });
     }
+
+    // Display alert
+    displayAlert(alert, classes) {
+        const div = document.createElement('div');
+        // Add Bootstrap alert classes to the div
+        div.classList = classes;
+        // Add alert to the div
+        div.appendChild(document.createTextNode(alert));
+        // Parent to append the div
+        const alertContainer = document.getElementById('alert-container');
+        // Append alert to parent
+        alertContainer.appendChild(div)
+        // Alert is removed after 3s
+        setTimeout(() => {
+            this.cleanAlert();
+        }, 3000);
+    }
+    // Remove alert in case it exists already
+    cleanAlert() {
+        const alert = document.querySelector('.alert');
+        alert.remove();
+    }
 }
