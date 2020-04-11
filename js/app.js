@@ -24,7 +24,7 @@ function displayPic() {
                 ui.createPic(rndmPic, parent); 
             })
         // Focus picture after it's displayed
-        ui.focusElement(pic);
+        // ui.focusElement(pic);
     } else {
         // Display alert if select is empty
         ui.displayAlert('Please, choose a breed', 'alert alert-danger text-center');
