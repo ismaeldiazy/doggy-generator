@@ -7,6 +7,30 @@ class Interface {
         this.printBreeds();
     }
 
+    // Create img element with url get by API request
+    displayPic(picUrl) {
+        // Clean previous pic before displaying the new one
+        this.cleanPic();
+        // Create img
+        const img = document.createElement('img');
+        // Give class
+        img.classList = 'img-fluid mx-auto d-block'
+        // Give src to img
+        img.src = picUrl;
+        // Append img to the parent
+        parent = document.getElementById('main-container');
+        parent.appendChild(img);
+    }
+
+    // Clean pic if there's so
+    cleanPic() {
+        const pic = document.querySelector('.img-fluid');
+        if (pic) {
+            pic.remove();
+        }
+
+    }
+
     // Print the dog brees in the select options
     printBreeds() {
         const breedsList = dogApi.getBreedList()
@@ -27,7 +51,7 @@ class Interface {
                         value.forEach(subBreed => {
                             const option = document.createElement('option');
                             // Give option value (sub-breed)
-                            option.value = `${breed}-${subBreed}`;
+                            option.value = `${breed}/${subBreed}`;
                             option.appendChild(document.createTextNode(`${breed} ${subBreed}`))
                             select.appendChild(option);
                         });

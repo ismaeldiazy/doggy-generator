@@ -10,10 +10,17 @@ document.addEventListener('submit', (e) => {
 
     // Check the select is not empty
     if (selectedBreed !== "") {
-        console.log('Breed Selected');
+        dogApi.getDogPicUrl(selectedBreed)
+            .then(dogPic => {
+                const rndmPic = dogPic.dogPic.message;
+                // Call method to create picture with given img src
+                ui.displayPic(rndmPic);
+            })
     } else {
         // Display alert if select is empty
         ui.displayAlert('Please, choose a breed', 'alert alert-danger text-center');
     }
 })
+
+
 
