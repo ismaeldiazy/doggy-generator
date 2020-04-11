@@ -8,7 +8,7 @@ class Interface {
     }
 
     // Create img element with url get by API request
-    createPic(picUrl) {
+    createPic(picUrl, parent) {
         // Clean previous pic before displaying the new one
         this.cleanPic();
         // Create img
@@ -20,7 +20,6 @@ class Interface {
         // Give src to img
         img.src = picUrl;
         // Append img to the parent
-        const parent = document.getElementById('main-container');
         parent.appendChild(img);
     }
 
@@ -32,7 +31,7 @@ class Interface {
         }
 
     }
-    
+
     // Print the dog brees in the select options
     printBreeds() {
         const breedsList = dogApi.getBreedList()
@@ -82,5 +81,31 @@ class Interface {
     cleanAlert() {
         const alert = document.querySelector('.alert');
         alert.remove();
+    }
+
+    // Create Bootstrap spinner grow
+    createLoader(parent) {
+        this.cleanLoader()
+        const loader = document.createElement('div');
+        loader.id = 'loader';
+        loader.classList = 'd-flex justify-content-center';
+        const div = document.createElement('div');
+        div.classList = 'spinner-grow text-info';
+        div.role = 'status';
+        div.style = 'width: 3rem; height: 3rem;'
+        const span = document.createElement('span');
+        span.classList = 'sr-only';
+        span.appendChild(document.createTextNode('Loading...'));
+        div.appendChild(span);
+        loader.appendChild(div);
+        parent.appendChild(loader);
+    }
+
+    // Clean loader
+    cleanLoader() {
+        const loader = document.getElementById('loader');
+        if (loader) {
+            loader.remove(); 
+        }  
     }
 }
