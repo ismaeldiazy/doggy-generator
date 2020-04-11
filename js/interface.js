@@ -14,7 +14,7 @@ class Interface {
         // Create img
         const img = document.createElement('img');
         // Give class
-        img.classList = 'img-fluid mx-auto d-block'
+        img.classList = 'rounded img-fluid mx-auto d-block'
         // Give src to img
         img.src = picUrl;
         // Append img to the parent
