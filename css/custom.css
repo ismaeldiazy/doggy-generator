@@ -6,3 +6,28 @@
 .bg-pink {
     background-color: rgb(250, 230, 232);
 }
+
+/* Media querie for laptop and desktop screens */
+@media (min-width: 1025px) {
+  
+    .img-crop {
+        max-height: 220px;
+        margin-top: -30px;
+        overflow: hidden;
+    }
+    
+  }
+/* Media querie for mobile devices */
+  @media (min-width: 320px) and (max-width: 480px) {
+  
+    .img-crop {
+        max-height: 120px;
+        margin-top: -20px;
+        overflow: hidden;
+    }
+    
+    p {
+        font-size: 0.8em;
+    }
+    
+  }
