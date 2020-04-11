@@ -108,4 +108,11 @@ class Interface {
             loader.remove(); 
         }  
     }
+
+    // Method to make scroll into view
+    focusElement(element) {
+        if (element) {
+           element.scrollIntoView(); 
+        }
+    }
 }

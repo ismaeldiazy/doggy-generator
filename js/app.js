@@ -21,6 +21,8 @@ function displayPic() {
                 ui.cleanLoader();
                 // Call method to create picture with given img src
                 ui.createPic(rndmPic, parent);
+                pic = document.getElementById('dog-pic');
+                ui.focusElement(pic);
             })
         
     } else {
@@ -34,12 +36,11 @@ document.addEventListener('submit', (e) => {
     e.preventDefault();
     displayPic();
 })
-// Dog img 
+// Dog img listener
 document.addEventListener('click', (e) => {
     if (e.target.id == 'dog-pic') {
+        e.preventDefault();
         displayPic();
-        pic = document.getElementById('dog-pic');
-        pic.focus();
     }
 })
 
