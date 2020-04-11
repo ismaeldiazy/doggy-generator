@@ -8,17 +8,19 @@ class Interface {
     }
 
     // Create img element with url get by API request
-    displayPic(picUrl) {
+    createPic(picUrl) {
         // Clean previous pic before displaying the new one
         this.cleanPic();
         // Create img
         const img = document.createElement('img');
         // Give class
         img.classList = 'rounded img-fluid mx-auto d-block'
+        // Add id
+        img.id = 'dog-pic';
         // Give src to img
         img.src = picUrl;
         // Append img to the parent
-        parent = document.getElementById('main-container');
+        const parent = document.getElementById('main-container');
         parent.appendChild(img);
     }
 
@@ -30,7 +32,7 @@ class Interface {
         }
 
     }
-
+    
     // Print the dog brees in the select options
     printBreeds() {
         const breedsList = dogApi.getBreedList()
